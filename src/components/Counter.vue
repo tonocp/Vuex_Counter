@@ -3,7 +3,7 @@
 
   <hr />
 
-  <h2>Direct Access: {{ $store.state.count }}</h2>
+  <h2>Direct Access: {{ $store.state.counter.count }}</h2>
   <h2>Computed: {{ countComputed }}</h2>
 
   <hr />
@@ -20,7 +20,7 @@
 
   <hr />
 
-  <h2>Direct Getter: {{ $store.getters.squareCount }}</h2>
+  <h2>Direct Getter: {{ $store.getters["counter/squareCount"] }}</h2>
 </template>
 
 <script>
@@ -29,10 +29,10 @@ import { mapState, mapActions } from "vuex";
 export default {
   computed: {
     countComputed() {
-      return this.$store.state.count;
+      return this.$store.state.counter.count;
     },
 
-    ...mapState(["count", "lastMutation", "isLoading"]),
+    ...mapState("counter", ["count", "lastMutation", "isLoading"]),
 
     // ...mapState({
     //   count: (state) => state.count,
@@ -42,11 +42,14 @@ export default {
   },
   methods: {
     increment() {
-      this.$store.commit("increment");
+      // commit('namespaced/mutation')
+      this.$store.commit("counter/increment");
     },
 
     incrementBy() {
-      this.$store.commit("incrementBy", 5);
+      // commit('namespaced/mutation')
+
+      this.$store.commit("counter/incrementBy", 5);
 
       // También se pueden llamar acciones desde los métodos p.ej:
       // this.randomInt()
@@ -56,8 +59,9 @@ export default {
     //   this.$store.dispatch("incrementRandomInt");
     // },
 
-    // ...mapActions(["incrementRandomInt"]),
-    ...mapActions({
+    // ...mapActions("counter", ["incrementRandomInt"]),
+
+    ...mapActions("counter", {
       randomInt: "incrementRandomInt",
     }),
   },
