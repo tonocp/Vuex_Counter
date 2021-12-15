@@ -1,24 +1,5 @@
-# bases-vuex
+# VUEX Counter
 
-## Project setup
-```
-npm install
-```
+This is the GitHub repository for this simple Counter APP to learn the basics of [VUEX](https://next.vuex.vuejs.org/), handling the _STATE_ through _MUTATIONS_ and _ACTIONS_ and reading the changes made via _DIRECT ACCESS_, _MAP STATE_ and _GETTERS_
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Right now it's **still on development** and isn't deployed
